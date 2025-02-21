@@ -26,3 +26,13 @@ export const mutateMaterialContentSchema = z.object({
   text: z.string().optional(),
   contentId: z.string().min(5),
 });
+
+export const mutateTalentSchema = z.object({
+  name: z.string().min(5),
+  email: z.string().email(),
+  password: z.string().min(5),
+});
+
+export const addTalentContentSchema = z.object({
+  talentId: z.string().min(5),
+});

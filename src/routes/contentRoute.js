@@ -2,11 +2,15 @@ import express from "express";
 import {
   deleteContent,
   deleteMaterialContent,
+  deleteTalentToContent,
   getContentById,
   getContents,
+  getDetailMaterial,
   getPlatforms,
+  getTalentsByContentId,
   postContent,
   postMaterialContent,
+  postTalentToContent,
   updateContent,
   updateMaterialContent,
 } from "../controllers/contentControllers.js";
@@ -14,7 +18,10 @@ import { verifyToken } from "../middlewares/verifyToken.js";
 import multer from "multer";
 import { fileFilter, fileStorageContent } from "../utils/multer.js";
 import { validateRequest } from "../middlewares/validateRequest.js";
-import { mutateMaterialContentSchema } from "../utils/schema.js";
+import {
+  addTalentContentSchema,
+  mutateMaterialContentSchema,
+} from "../utils/schema.js";
 
 const contentRoutes = express.Router();
 
@@ -57,6 +64,21 @@ contentRoutes.delete(
   "/contents/materials/:id",
   verifyToken,
   deleteMaterialContent
+);
+contentRoutes.get("/contents/materials/:id", verifyToken, getDetailMaterial);
+
+contentRoutes.get("/contents/talents/:id", verifyToken, getTalentsByContentId);
+contentRoutes.post(
+  "/contents/talents/:id",
+  verifyToken,
+  validateRequest(addTalentContentSchema),
+  postTalentToContent
+);
+contentRoutes.put(
+  "/contents/talents/:id",
+  verifyToken,
+  validateRequest(addTalentContentSchema),
+  deleteTalentToContent
 );
 
 export default contentRoutes;

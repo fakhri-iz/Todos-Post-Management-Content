@@ -1,0 +1,733 @@
+{
+	"info": {
+		"_postman_id": "682d7f64-0691-4387-a4e3-1c6cc13a1f85",
+		"name": "Todos Management Content",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25224676"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Sign Up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Fakhri\",\r\n    \"email\": \"fakhri@creator.com\",\r\n    \"password\": \"123456789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/sign-up",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"sign-up"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign In",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"fakhri@creator.com\",\r\n    \"password\": \"123456789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/sign-in",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"sign-in"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Payment",
+			"item": [
+				{
+					"name": "Handle Payment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"transaction_time\": \"2020-01-09 18:27:19\",\r\n  \"transaction_status\": \"capture\",\r\n  \"transaction_id\": \"57d5293c-e65f-4a29-95e4-5959c3fa335b\",\r\n  \"status_message\": \"midtrans payment notification\",\r\n  \"status_code\": \"200\",\r\n  \"signature_key\": \"16d6f84b2fb0468e2a9cf99a8ac4e5d803d42180347aaa70cb2a7abb13b5c6130458ca9c71956a962c0827637cd3bc7d40b21a8ae9fab12c7c3efe351b18d00a\",\r\n  \"payment_type\": \"credit_card\",\r\n  \"order_id\": \"67b85b90d33a96b9b2d61daf\",\r\n  \"merchant_id\": \"G141532850\",\r\n  \"masked_card\": \"48111111-1114\",\r\n  \"gross_amount\": \"10000.00\",\r\n  \"fraud_status\": \"accept\",\r\n  \"eci\": \"05\",\r\n  \"currency\": \"IDR\",\r\n  \"channel_response_message\": \"Approved\",\r\n  \"channel_response_code\": \"00\",\r\n  \"card_type\": \"credit\",\r\n  \"bank\": \"bni\",\r\n  \"approval_code\": \"1578569243927\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/handle-payment-midtrans",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"handle-payment-midtrans"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Content",
+			"item": [
+				{
+					"name": "Get Contents",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiNjdiODViOTBkMzNhOTZiOWIyZDYxZGFlIn0sImlhdCI6MTc0MDE0Mjk1MSwiZXhwIjoxNzQwMjI5MzUxfQ.0lMMPkc_xUZVPGkulu9u1-5Opmf3Rxmq9EFesiYr8Os",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/contents",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"contents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Content",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiNjdiODViOTBkMzNhOTZiOWIyZDYxZGFlIn0sImlhdCI6MTc0MDE0Mjk1MSwiZXhwIjoxNzQwMjI5MzUxfQ.0lMMPkc_xUZVPGkulu9u1-5Opmf3Rxmq9EFesiYr8Os",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Content Introductions",
+									"type": "text"
+								},
+								{
+									"key": "platformId",
+									"value": "67b87e50856e97b6636bb41a",
+									"type": "text"
+								},
+								{
+									"key": "tagline",
+									"value": "First Content",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Kenalan dulu cuyy",
+									"type": "text"
+								},
+								{
+									"key": "thumbnail",
+									"type": "file",
+									"src": "/C:/Users/acer/Downloads/intro.jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/contents",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"contents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Content",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiNjdiODViOTBkMzNhOTZiOWIyZDYxZGFlIn0sImlhdCI6MTc0MDE0Mjk1MSwiZXhwIjoxNzQwMjI5MzUxfQ.0lMMPkc_xUZVPGkulu9u1-5Opmf3Rxmq9EFesiYr8Os",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Content Introductions Youtube",
+									"type": "text"
+								},
+								{
+									"key": "platformId",
+									"value": "67b87dee856e97b6636bb415",
+									"type": "text"
+								},
+								{
+									"key": "tagline",
+									"value": "First Content",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Kenalan dulu cuyy",
+									"type": "text"
+								},
+								{
+									"key": "thumbnail",
+									"type": "file",
+									"src": "/C:/Users/acer/Downloads/yt.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/contents/67b87e16f48228f0b78314f4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"contents",
+								"67b87e16f48228f0b78314f4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Content",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiNjdiODViOTBkMzNhOTZiOWIyZDYxZGFlIn0sImlhdCI6MTc0MDE0Mjk1MSwiZXhwIjoxNzQwMjI5MzUxfQ.0lMMPkc_xUZVPGkulu9u1-5Opmf3Rxmq9EFesiYr8Os",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/contents/67b87e81f48228f0b78314fa",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"contents",
+								"67b87e81f48228f0b78314fa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Content Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiNjdiODViOTBkMzNhOTZiOWIyZDYxZGFlIn0sImlhdCI6MTc0MDE0Mjk1MSwiZXhwIjoxNzQwMjI5MzUxfQ.0lMMPkc_xUZVPGkulu9u1-5Opmf3Rxmq9EFesiYr8Os",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/contents/67b88ae1193d3f46fdae86ce",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"contents",
+								"67b88ae1193d3f46fdae86ce"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Material Content",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiNjdiODViOTBkMzNhOTZiOWIyZDYxZGFlIn0sImlhdCI6MTc0MDE1MTg2MCwiZXhwIjoxNzQwMjM4MjYwfQ.iUd4CP8aPcLOPYd9YkSUaBPMJd963Xq_wuyb8AZQdJs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Brief 1\",\r\n    \"type\": \"video\",\r\n    \"contentId\": \"67b88ae1193d3f46fdae86ce\",\r\n    \"videoId\": \"WU2cg5jg_0Y\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/contents/materials",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"contents",
+								"materials"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Material Content",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiNjdiODViOTBkMzNhOTZiOWIyZDYxZGFlIn0sImlhdCI6MTc0MDE1MTg2MCwiZXhwIjoxNzQwMjM4MjYwfQ.iUd4CP8aPcLOPYd9YkSUaBPMJd963Xq_wuyb8AZQdJs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Material 1\",\r\n    \"type\": \"text\",\r\n    \"contentId\": \"67b88ae1193d3f46fdae86ce\",\r\n    \"text\": \"Hiii fakhri disiniii\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/contents/materials/67b8a018734f1cfdf8d5a6c9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"contents",
+								"materials",
+								"67b8a018734f1cfdf8d5a6c9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Material Content",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiNjdiODViOTBkMzNhOTZiOWIyZDYxZGFlIn0sImlhdCI6MTc0MDE1MTg2MCwiZXhwIjoxNzQwMjM4MjYwfQ.iUd4CP8aPcLOPYd9YkSUaBPMJd963Xq_wuyb8AZQdJs",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/contents/materials/67b8a07c734f1cfdf8d5a6ce",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"contents",
+								"materials",
+								"67b8a07c734f1cfdf8d5a6ce"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Detail Material",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiNjdiODViOTBkMzNhOTZiOWIyZDYxZGFlIn0sImlhdCI6MTc0MDE0Mjk1MSwiZXhwIjoxNzQwMjI5MzUxfQ.0lMMPkc_xUZVPGkulu9u1-5Opmf3Rxmq9EFesiYr8Os",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/contents/materials/67b8a018734f1cfdf8d5a6c9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"contents",
+								"materials",
+								"67b8a018734f1cfdf8d5a6c9"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Platforms",
+			"item": [
+				{
+					"name": "Get Platforms",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiNjdiODViOTBkMzNhOTZiOWIyZDYxZGFlIn0sImlhdCI6MTc0MDE0Mjk1MSwiZXhwIjoxNzQwMjI5MzUxfQ.0lMMPkc_xUZVPGkulu9u1-5Opmf3Rxmq9EFesiYr8Os",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/platforms",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"platforms"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Talent",
+			"item": [
+				{
+					"name": "Get Talents",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiNjdiODViOTBkMzNhOTZiOWIyZDYxZGFlIn0sImlhdCI6MTc0MDE1MTg2MCwiZXhwIjoxNzQwMjM4MjYwfQ.iUd4CP8aPcLOPYd9YkSUaBPMJd963Xq_wuyb8AZQdJs",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/talents",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"talents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Talent",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiNjdiODViOTBkMzNhOTZiOWIyZDYxZGFlIn0sImlhdCI6MTc0MDE1MTg2MCwiZXhwIjoxNzQwMjM4MjYwfQ.iUd4CP8aPcLOPYd9YkSUaBPMJd963Xq_wuyb8AZQdJs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Windah",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "windah@talent.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456789",
+									"type": "text"
+								},
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/C:/Users/acer/Downloads/p89ju7aq-project-frontend/public/assets/images/photos/photo-5.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/talents",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"talents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Talent",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiNjdiODViOTBkMzNhOTZiOWIyZDYxZGFlIn0sImlhdCI6MTc0MDE1MTg2MCwiZXhwIjoxNzQwMjM4MjYwfQ.iUd4CP8aPcLOPYd9YkSUaBPMJd963Xq_wuyb8AZQdJs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Erika",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "erika@talent.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456789",
+									"type": "text"
+								},
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/C:/Users/acer/Downloads/p89ju7aq-project-frontend/public/assets/images/photos/photo-2.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/talents/67b8b183369307ac0f860ec7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"talents",
+								"67b8b183369307ac0f860ec7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Talent",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiNjdiODViOTBkMzNhOTZiOWIyZDYxZGFlIn0sImlhdCI6MTc0MDE1MTg2MCwiZXhwIjoxNzQwMjM4MjYwfQ.iUd4CP8aPcLOPYd9YkSUaBPMJd963Xq_wuyb8AZQdJs",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/talents/67b8b183369307ac0f860ec7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"talents",
+								"67b8b183369307ac0f860ec7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Content Talent",
+			"item": [
+				{
+					"name": "Get Talent By Content Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiNjdiODViOTBkMzNhOTZiOWIyZDYxZGFlIn0sImlhdCI6MTc0MDE1MTg2MCwiZXhwIjoxNzQwMjM4MjYwfQ.iUd4CP8aPcLOPYd9YkSUaBPMJd963Xq_wuyb8AZQdJs",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/contents/talents/67b88ae1193d3f46fdae86ce",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"contents",
+								"talents",
+								"67b88ae1193d3f46fdae86ce"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Talent to Content",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiNjdiODViOTBkMzNhOTZiOWIyZDYxZGFlIn0sImlhdCI6MTc0MDE1MTg2MCwiZXhwIjoxNzQwMjM4MjYwfQ.iUd4CP8aPcLOPYd9YkSUaBPMJd963Xq_wuyb8AZQdJs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"talentId\": \"67b8b5967c3efed104ebe802\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/contents/talents/67b88ae1193d3f46fdae86ce",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"contents",
+								"talents",
+								"67b88ae1193d3f46fdae86ce"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Talent To Content",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiNjdiODViOTBkMzNhOTZiOWIyZDYxZGFlIn0sImlhdCI6MTc0MDE1MTg2MCwiZXhwIjoxNzQwMjM4MjYwfQ.iUd4CP8aPcLOPYd9YkSUaBPMJd963Xq_wuyb8AZQdJs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"talentId\": \"67b8b5967c3efed104ebe802\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/contents/talents/67b88ae1193d3f46fdae86ce",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"contents",
+								"talents",
+								"67b88ae1193d3f46fdae86ce"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -314,3 +314,110 @@ export const deleteMaterialContent = async (req, res) => {
     });
   }
 };
+
+export const getDetailMaterial = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const material = await contentDetailModel.findById(id);
+
+    return res.json({
+      message: "Get detail material success",
+      data: material,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.json({
+      message: "Internal server error",
+    });
+  }
+};
+
+export const getTalentsByContentId = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const content = await contentModel.findById(id).select("name").populate({
+      path: "talents",
+      select: "name email photo",
+    });
+
+    const photoUrl = process.env.APP_URL + "/uploads/talents/";
+
+    const talentsRes = content?.talents?.map((item) => {
+      return {
+        ...item.toObject(),
+        photo_url: photoUrl + item.photo,
+      };
+    });
+
+    return res.json({
+      message: "Get talent by content success",
+      data: {
+        ...content.toObject(),
+        talents: talentsRes,
+      },
+    });
+  } catch (error) {
+    console.log(error);
+    return res.json({
+      message: "Internal server error",
+    });
+  }
+};
+
+export const postTalentToContent = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const body = req.body;
+
+    await userModel.findByIdAndUpdate(body.talentId, {
+      $push: {
+        contents: id,
+      },
+    });
+
+    await contentModel.findByIdAndUpdate(id, {
+      $push: {
+        talents: body.talentId,
+      },
+    });
+
+    return res.json({
+      message: "Add talent to content success",
+    });
+  } catch (error) {
+    console.log(error);
+    return res.json({
+      message: "Internal server error",
+    });
+  }
+};
+
+export const deleteTalentToContent = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const body = req.body;
+
+    await userModel.findByIdAndUpdate(body.talentId, {
+      $pull: {
+        contents: id,
+      },
+    });
+
+    await contentModel.findByIdAndUpdate(id, {
+      $pull: {
+        talents: body.talentId,
+      },
+    });
+
+    return res.json({
+      message: "Delete talent to content success",
+    });
+  } catch (error) {
+    console.log(error);
+    return res.json({
+      message: "Internal server error",
+    });
+  }
+};
